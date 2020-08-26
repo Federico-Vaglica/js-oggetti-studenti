@@ -2,7 +2,7 @@ $(document).ready(function (){
 //Creo un oggetto che descriva uno studente con le seguenti proprieta: nome , cognome ,eta
 
 var studente = {
-    'nome':'Ariaana',
+    'nome':'Arianna',
     'cognome':'rossi',
     'eta':'25'
 }
@@ -48,40 +48,38 @@ var studenti = [
 //Stampo per ognuno nome e cognome 
 
 for(var i=0; i<studenti.length; i++){
-    $('.studenti').append("<li>Nome: " + studenti[i].nome + "   Cognome: " + studenti[i].cognome + "</li>")
+    var source = $('#entry-template').html();
+    var template = Handlebars.compile(source);
+
+    var studente = {
+        nome: studenti[i].nome,
+        cognome: studenti[i].cognome
+    }
+    
+    var html = template(studente);
+    $('#studenti').append(html);
+
+
 };
 
-// Do la possibilita attraverso 3 prompt all utente di aggiungere un nuovo oggetto studente
-//$('#button').click(function(){
-//    var nomeUser = prompt('Inserici il tuo nome');
-//    var cognomeUser = prompt('Inserisci il tuo Cognome');
-//    var etaUser = prompt('Inserisci la tua eta');
+//Do la possibilita di inserire un nuovo studente e lo stampo insieme agli altri
 
-//    var nuovoStudente = {
-//        'nome':nomeUser,
-//        'cognome':cognomeUser,
-//        'eta':etaUser
-//    }
-//    studenti.push(nuovoStudente);
-//     $('.studenti').append("<li>Nome: " + nuovoStudente.nome + "   Cognome: " + nuovoStudente.cognome + "</li>")
-//    console.log(studenti);
-//});
 $('#button').click(function(){
     var source = $('#entry-template').html();
     var template = Handlebars.compile(source);
 
-    var nuovoStudente = {
+    var studente = {
         nome:prompt('Inserici il tuo nome'),
         cognome:prompt('Inserisci il tuo Cognome'),
         eta: prompt('Inserisci la tua eta')
     }
 
-    var html = template(nuovoStudente);
+    var html = template(studente);
     $('#newStud').append(html);
 
 
 
-    studenti.push(nuovoStudente);
+    studenti.push(studente);
     console.log(studenti);
 
 })
