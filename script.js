@@ -7,9 +7,7 @@ var studente = {
     'eta':'25'
 }
 
-var nome = studente.nome;
-var cognome = studente.cognome;
-var eta = studente.eta;
+
 
 //Stampo attraverso il ciclo for..in tutte le proprieta(chiave/valore)
 for( var k in studente){ 
