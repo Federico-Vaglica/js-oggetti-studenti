@@ -69,7 +69,7 @@ $('#button').click(function(){
     var studente = {
         nome:prompt('Inserici il tuo nome'),
         cognome:prompt('Inserisci il tuo Cognome'),
-        eta: prompt('Inserisci la tua eta')
+        eta: parseInt(prompt('Inserisci la tua eta'))
     }
 
     var html = template(studente);
@@ -87,3 +87,8 @@ $('#button').click(function(){
 
 
 
+////for (var i=0; i<studenti.lenght; i++){
+ //   for (var k in studenti[i]){
+//        console.log(k + ':'+ studenti[i][k])
+//    }
+//}
